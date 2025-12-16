@@ -4,4 +4,25 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "black>=25.12.0",
+    "pre-commit>=4.5.0",
+]
+
+[tool.black]
+line-length = 88             # 1行の文字数（デフォルトは88。チームによっては100や120にする場合も）
+target-version = ['py311']   # ターゲットとするPythonのバージョン
+include = '\.pyi?$'          # 対象ファイル（基本デフォルトでOK）
+exclude = '''                # 除外するディレクトリ
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
